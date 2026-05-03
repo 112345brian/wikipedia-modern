@@ -31,6 +31,8 @@ html.skin-theme-clientpref-night {
     --background-color-neutral-subtle: #0e0e0e !important;
     --background-color-interactive: #1e1e1e !important;
     --background-color-interactive--hover: #252525 !important;
+    --border-color-base: #343434 !important;
+    --border-color-subtle: #2a2a2a !important;
 }
 
 html.skin-theme-clientpref-night body,
@@ -116,6 +118,25 @@ h1#firstHeading {
     font-size: 0.875em !important;
 }
 
+.mw-body-content code {
+    border-radius: 4px !important;
+    padding: 0.08em 0.28em !important;
+}
+
+.mw-body-content pre,
+.mw-code {
+    border-radius: 8px !important;
+    line-height: 1.55 !important;
+    padding: 0.85rem 1rem !important;
+}
+
+html.skin-theme-clientpref-night .mw-body-content code,
+html.skin-theme-clientpref-night .mw-body-content pre,
+html.skin-theme-clientpref-night .mw-code {
+    background-color: #1a1a1a !important;
+    border-color: #343434 !important;
+}
+
 
 /* ==========================================================================
    2. UI CHROME — Sidebar, tabs, menus, search
@@ -199,6 +220,13 @@ nav.vector-menu-tabs,
     overflow: hidden !important;
 }
 
+html.skin-theme-clientpref-night .cdx-menu,
+html.skin-theme-clientpref-night .vector-typeahead-search .cdx-menu {
+    background-color: #1a1a1a !important;
+    border-color: #343434 !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45) !important;
+}
+
 
 /* ==========================================================================
    3. LINKS — Brighter on dark, clean hover
@@ -236,6 +264,10 @@ html.skin-theme-clientpref-night {
     opacity: 0.45 !important;
 }
 
+.mw-parser-output a.external:hover::after {
+    opacity: 0.8 !important;
+}
+
 /* Reference superscripts — quieter, less visual noise */
 sup.reference {
     font-size: 0.65em !important;
@@ -262,6 +294,8 @@ sup.reference:hover {
 
 /* Dark mode: stronger shadow */
 html.skin-theme-clientpref-night .infobox {
+    background-color: #181818 !important;
+    border-color: #343434 !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
 }
 
@@ -297,7 +331,13 @@ html.skin-theme-clientpref-night .infobox {
 }
 
 html.skin-theme-clientpref-night .wikitable {
+    background-color: #181818 !important;
+    border-color: #343434 !important;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.skin-theme-clientpref-night .wikitable th {
+    background-color: #202020 !important;
 }
 
 .wikitable th {
@@ -319,16 +359,150 @@ html.skin-theme-clientpref-night .wikitable {
    ========================================================================== */
 
 /* Sidebar TOC (Vector 2022 pinned) */
-.vector-toc .vector-toc-text {
-    font-size: 13.5px !important;
+.vector-toc {
+    font-size: 0.875rem !important;
+    line-height: 1.35 !important;
+}
+
+.vector-toc .vector-pinnable-header {
+    align-items: center !important;
+    border-bottom: 1px solid var(--border-color-subtle, #eaecf0) !important;
+    gap: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.vector-toc .vector-pinnable-header-label {
+    color: var(--color-subtle, #54595d) !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    line-height: 1.2 !important;
+}
+
+.vector-toc .vector-pinnable-header-toggle-button {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 4px !important;
+    color: var(--color-subtle, #54595d) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    padding: 0.25rem 0.375rem !important;
+}
+
+.vector-toc .vector-pinnable-header-toggle-button:hover {
+    background-color: var(--background-color-interactive-subtle, rgba(0, 24, 73, 0.027)) !important;
+    color: var(--color-base, #202122) !important;
+}
+
+.vector-toc .vector-toc-list,
+.vector-toc .vector-toc-list-item {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .vector-toc .vector-toc-list-item {
-    padding: 2px 0 !important;
+    position: relative !important;
+}
+
+.vector-toc .vector-toc-link {
+    border-radius: 4px !important;
+    color: var(--color-progressive, #36c) !important;
+    display: block !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+    min-height: 1.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+    text-decoration: none !important;
+}
+
+.vector-toc .vector-toc-link:hover {
+    background-color: var(--background-color-interactive-subtle, rgba(0, 24, 73, 0.027)) !important;
+    text-decoration: none !important;
+}
+
+.vector-toc .vector-toc-text {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    font-size: inherit !important;
+    gap: 0.375rem !important;
+    overflow-wrap: anywhere !important;
+}
+
+.vector-toc .vector-toc-numb {
+    color: var(--color-subtle, #54595d) !important;
+    flex: 0 0 auto !important;
+    font-size: 0.75rem !important;
+    min-width: 1.25rem !important;
+    opacity: 0.72 !important;
+}
+
+.vector-toc .vector-toc-level-1 .vector-toc-link {
+    padding-left: 0.5rem !important;
+}
+
+.vector-toc .vector-toc-level-1:has(>.vector-toc-toggle)>.vector-toc-link {
+    padding-left: 1.75rem !important;
+}
+
+.vector-toc .vector-toc-level-2 .vector-toc-link {
+    padding-left: 1.25rem !important;
+}
+
+.vector-toc .vector-toc-level-2:has(>.vector-toc-toggle)>.vector-toc-link {
+    padding-left: 2.5rem !important;
+}
+
+.vector-toc .vector-toc-level-3 .vector-toc-link {
+    padding-left: 2rem !important;
+}
+
+.vector-toc .vector-toc-level-3:has(>.vector-toc-toggle)>.vector-toc-link {
+    padding-left: 3.25rem !important;
+}
+
+.vector-toc .vector-toc-toggle {
+    align-items: center !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    left: 0.375rem !important;
+    margin: 0 !important;
+    min-height: 1rem !important;
+    min-width: 1rem !important;
+    padding: 0 !important;
+    position: absolute !important;
+    top: 0.375rem !important;
+}
+
+.vector-toc .vector-toc-level-2>.vector-toc-toggle {
+    left: 1.125rem !important;
+}
+
+.vector-toc .vector-toc-level-3>.vector-toc-toggle {
+    left: 1.875rem !important;
+}
+
+.vector-toc .vector-toc-toggle .vector-icon {
+    background-size: 0.75rem !important;
+    height: 1rem !important;
+    margin: 0 !important;
+    min-width: 1rem !important;
+    width: 1rem !important;
+}
+
+.vector-toc .vector-toc-list-item-active>.vector-toc-link {
+    background-color: var(--background-color-progressive-subtle, rgba(51, 102, 204, 0.1)) !important;
+    color: var(--color-progressive, #36c) !important;
 }
 
 .vector-toc .vector-toc-list-item-active>.vector-toc-link .vector-toc-text {
-    font-weight: 600 !important;
+    font-weight: 700 !important;
+}
+
+html.skin-theme-clientpref-night .vector-toc .vector-pinnable-header {
+    border-bottom-color: #2a2a2a !important;
 }
 
 /* Legacy inline TOC fallback */
@@ -359,12 +533,24 @@ figure[typeof~="mw:File/Thumb"],
 }
 
 figure[typeof~="mw:File/Thumb"]>figcaption,
+.thumb .thumbcaption,
+.thumbinner {
+    border-color: var(--border-color-subtle, #eaecf0) !important;
+}
+
+figure[typeof~="mw:File/Thumb"]>figcaption,
 .thumb .thumbcaption {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
     font-size: 0.78em !important;
     line-height: 1.45 !important;
     padding: 8px 10px !important;
     opacity: 0.72 !important;
+}
+
+html.skin-theme-clientpref-night .thumbinner,
+html.skin-theme-clientpref-night figure[typeof~="mw:File/Thumb"] {
+    background-color: #181818 !important;
+    border-color: #343434 !important;
 }
 
 
@@ -380,6 +566,11 @@ figure[typeof~="mw:File/Thumb"]>figcaption,
     border-radius: 0 6px 6px 0 !important;
 }
 
+html.skin-theme-clientpref-night .mw-body-content blockquote,
+html.skin-theme-clientpref-night .templatequote {
+    background-color: rgba(255, 255, 255, 0.025) !important;
+}
+
 .hatnote,
 .dablink {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
@@ -387,6 +578,12 @@ figure[typeof~="mw:File/Thumb"]>figcaption,
     border-radius: 6px !important;
     padding: 8px 14px !important;
     margin-bottom: 1rem !important;
+}
+
+html.skin-theme-clientpref-night .hatnote,
+html.skin-theme-clientpref-night .dablink {
+    background-color: #181818 !important;
+    border-color: #343434 !important;
 }
 
 
@@ -401,12 +598,24 @@ figure[typeof~="mw:File/Thumb"]>figcaption,
     overflow: hidden !important;
 }
 
+html.skin-theme-clientpref-night .navbox,
+html.skin-theme-clientpref-night .navbox th,
+html.skin-theme-clientpref-night .navbox td {
+    background-color: #181818 !important;
+    border-color: #343434 !important;
+}
+
 #catlinks {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
     font-size: 0.82em !important;
     border-radius: 6px !important;
     padding: 8px 14px !important;
     margin-top: 1.5rem !important;
+}
+
+html.skin-theme-clientpref-night #catlinks {
+    background-color: #181818 !important;
+    border-color: #343434 !important;
 }
 
 .reflist,
@@ -424,6 +633,11 @@ figure[typeof~="mw:File/Thumb"]>figcaption,
 .ambox {
     border-radius: 6px !important;
     overflow: hidden !important;
+}
+
+html.skin-theme-clientpref-night .ambox {
+    background-color: #181818 !important;
+    border-color: #343434 !important;
 }
 
 
@@ -447,6 +661,10 @@ figure[typeof~="mw:File/Thumb"]>figcaption,
     padding-left: 1.5em !important;
 }
 
+.mw-body-content li {
+    margin-bottom: 0.2em !important;
+}
+
 /* Horizontal rules */
 .mw-body-content hr {
     margin: 1.5rem 0 !important;
@@ -465,6 +683,16 @@ a,
     transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease !important;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.cdx-button:focus-visible {
+    outline: 2px solid var(--color-progressive, #36c) !important;
+    outline-offset: 2px !important;
+}
+
 /* Slim scrollbar (Webkit browsers) */
 ::-webkit-scrollbar {
     width: 8px;
@@ -473,4 +701,8 @@ a,
 
 ::-webkit-scrollbar-thumb {
     border-radius: 999px;
+}
+
+html.skin-theme-clientpref-night ::-webkit-scrollbar-thumb {
+    background-color: #3a3a3a;
 }
