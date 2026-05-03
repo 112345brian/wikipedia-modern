@@ -1,0 +1,476 @@
+/* ==========================================================================
+   Wikipedia Modern — System Font Stack (Minerva-style)
+   For User:YourName/common.css (applies to all skins)
+   or User:YourName/vector-2022.css (Vector 2022 only)
+
+   Works WITH Wikipedia's built-in dark mode (skin-theme-clientpref-night).
+   Does NOT fight the Codex CSS variable system — only overrides
+   typography, spacing, and adds subtle visual refinements.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. TYPOGRAPHY — System font stack (matches Minerva mobile)
+   ========================================================================== */
+
+/* Body / content font */
+body,
+.mw-body,
+.mw-body-content,
+.vector-body,
+#mw-content-text,
+.mw-parser-output {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+}
+
+/* Dark mode: use auto smoothing (subpixel) for more body, soften text to off-white,
+   and fix the blue-tinted background to neutral dark */
+html.skin-theme-clientpref-night {
+    --background-color-base: #121212 !important;
+    --background-color-neutral: #1a1a1a !important;
+    --background-color-neutral-subtle: #0e0e0e !important;
+    --background-color-interactive: #1e1e1e !important;
+    --background-color-interactive--hover: #252525 !important;
+}
+
+html.skin-theme-clientpref-night body,
+html.skin-theme-clientpref-night .mw-body,
+html.skin-theme-clientpref-night .mw-body-content,
+html.skin-theme-clientpref-night .vector-body {
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
+    --color-base: #d6d6d6 !important;
+    --color-emphasized: #e8e8e8 !important;
+    background-color: #121212 !important;
+}
+
+html.skin-theme-clientpref-night .vector-header,
+html.skin-theme-clientpref-night .vector-column-start,
+html.skin-theme-clientpref-night .vector-sticky-header {
+    background-color: #121212 !important;
+}
+
+/* Increase body text size, weight, and line-height for readability */
+.vector-body,
+.mw-body-content {
+    font-size: 16.5px !important;
+    font-weight: 430 !important;
+    line-height: 1.82 !important;
+    letter-spacing: 0.006em !important;
+}
+
+/* Make bold text heavier so it stands out properly */
+.mw-body-content b,
+.mw-body-content strong {
+    font-weight: 750 !important;
+}
+
+/* More space between paragraphs for scanability */
+.mw-body-content p {
+    margin-bottom: 1.2em !important;
+}
+
+/* Cap line length for optimal readability (~70 chars) */
+.mw-body-content,
+.vector-body {
+    max-width: 48rem !important;
+}
+
+/* Page title — use a nice serif for editorial contrast */
+.mw-page-title-main,
+.mw-first-heading,
+h1#firstHeading {
+    font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif !important;
+    font-weight: 700 !important;
+    font-size: 2.2rem !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.2 !important;
+}
+
+/* Section headings */
+.mw-body-content h2 {
+    font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.015em !important;
+}
+
+.mw-body-content h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+}
+
+.mw-body-content h4,
+.mw-body-content h5,
+.mw-body-content h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-weight: 600 !important;
+}
+
+/* Monospace */
+.mw-body-content code,
+.mw-body-content pre,
+.mw-code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Consolas', monospace !important;
+    font-size: 0.875em !important;
+}
+
+
+/* ==========================================================================
+   2. UI CHROME — Sidebar, tabs, menus, search
+   ========================================================================== */
+
+/* Sidebar nav */
+.vector-main-menu,
+.vector-column-start,
+.vector-toc,
+.vector-pinnable-header-label,
+nav.vector-menu-tabs,
+.vector-menu-heading,
+.mw-portlet-lang,
+#p-personal,
+#pt-userpage,
+.cdx-text-input__input {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+}
+
+/* Menu section headers — subtle uppercase labels */
+.vector-menu-heading,
+.vector-pinnable-header-label {
+    font-weight: 600 !important;
+    font-size: 0.72rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+}
+
+/* Hide search magnifying glass icon */
+.cdx-text-input__start-icon,
+.searchButton .cdx-icon,
+.vector-search-box-icon,
+.cdx-text-input .cdx-icon {
+    display: none !important;
+}
+
+/* Remove outer rectangle wrapper around search */
+.vector-search-box,
+.vector-search-box-vue,
+.cdx-search-input,
+.cdx-search-input--has-end-button,
+.cdx-search-input .cdx-search-input__input-wrapper {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Search bar — pill shape with softer feel */
+.cdx-text-input__input,
+#searchInput {
+    border-radius: 999px !important;
+    padding: 7px 16px !important;
+    font-size: 14px !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.cdx-text-input__input:focus,
+#searchInput:focus {
+    box-shadow: 0 0 0 3px rgba(107, 158, 255, 0.2) !important;
+    outline: none !important;
+}
+
+/* Search button — full pill */
+.cdx-search-input__end-button,
+.searchButton {
+    border-radius: 999px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-size: 13px !important;
+}
+
+/* The whole search input wrapper as a pill */
+.cdx-search-input .cdx-search-input__input-wrapper {
+    border-radius: 999px !important;
+}
+
+/* Search suggestions dropdown — rounded */
+.cdx-search-result-title,
+.cdx-menu {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+
+/* ==========================================================================
+   3. LINKS — Brighter on dark, clean hover
+   ========================================================================== */
+
+/* Brighter link color in dark mode for better contrast */
+html.skin-theme-clientpref-night {
+    --color-progressive: #7ba4ff !important;
+    --color-progressive--hover: #a3c1ff !important;
+}
+
+.mw-body-content a:not(.new):not(.mw-selflink) {
+    text-decoration: none !important;
+    transition: color 0.15s ease !important;
+}
+
+.mw-body-content a:not(.new):not(.mw-selflink):hover {
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+    text-decoration-thickness: 1px !important;
+}
+
+/* Red links stay recognizable */
+.mw-body-content a.new {
+    text-decoration: none !important;
+}
+
+.mw-body-content a.new:hover {
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+}
+
+/* Tone down external link icon */
+.mw-parser-output a.external::after {
+    opacity: 0.45 !important;
+}
+
+/* Reference superscripts — quieter, less visual noise */
+sup.reference {
+    font-size: 0.65em !important;
+    line-height: 0 !important;
+    font-weight: 400 !important;
+    opacity: 0.55 !important;
+    transition: opacity 0.15s ease !important;
+}
+
+sup.reference:hover {
+    opacity: 1 !important;
+}
+
+
+/* ==========================================================================
+   4. INFOBOX — Rounded, subtle shadow
+   ========================================================================== */
+
+.infobox {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Dark mode: stronger shadow */
+html.skin-theme-clientpref-night .infobox {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+}
+
+.infobox th,
+.infobox td {
+    padding: 6px 12px !important;
+}
+
+.infobox caption,
+.infobox-above,
+.infobox-title {
+    font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+}
+
+/* Round images inside infobox */
+.infobox .mw-file-element {
+    border-radius: 6px !important;
+}
+
+
+/* ==========================================================================
+   5. TABLES — Rounded corners, cleaner headers
+   ========================================================================== */
+
+.wikitable {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.skin-theme-clientpref-night .wikitable {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.wikitable th {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.82em !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.03em !important;
+}
+
+.wikitable td,
+.wikitable th {
+    padding: 8px 12px !important;
+}
+
+
+/* ==========================================================================
+   6. TABLE OF CONTENTS
+   ========================================================================== */
+
+/* Sidebar TOC (Vector 2022 pinned) */
+.vector-toc .vector-toc-text {
+    font-size: 13.5px !important;
+}
+
+.vector-toc .vector-toc-list-item {
+    padding: 2px 0 !important;
+}
+
+.vector-toc .vector-toc-list-item-active>.vector-toc-link .vector-toc-text {
+    font-weight: 600 !important;
+}
+
+/* Legacy inline TOC fallback */
+#toc,
+.toc {
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+}
+
+#toc #toctitle,
+.toc .toctitle {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.72rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+}
+
+
+/* ==========================================================================
+   7. IMAGES / THUMBNAILS
+   ========================================================================== */
+
+figure[typeof~="mw:File/Thumb"],
+.thumb {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+figure[typeof~="mw:File/Thumb"]>figcaption,
+.thumb .thumbcaption {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-size: 0.78em !important;
+    line-height: 1.45 !important;
+    padding: 8px 10px !important;
+    opacity: 0.72 !important;
+}
+
+
+/* ==========================================================================
+   8. BLOCKQUOTES / HATNOTES
+   ========================================================================== */
+
+.mw-body-content blockquote,
+.templatequote {
+    border-left: 3px solid var(--color-progressive, #36c) !important;
+    padding: 0.5rem 1.1rem !important;
+    margin-left: 0 !important;
+    border-radius: 0 6px 6px 0 !important;
+}
+
+.hatnote,
+.dablink {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-size: 0.88em !important;
+    border-radius: 6px !important;
+    padding: 8px 14px !important;
+    margin-bottom: 1rem !important;
+}
+
+
+/* ==========================================================================
+   9. NAVBOX / CATEGORIES / REFERENCES
+   ========================================================================== */
+
+.navbox {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-size: 0.82em !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+#catlinks {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-size: 0.82em !important;
+    border-radius: 6px !important;
+    padding: 8px 14px !important;
+    margin-top: 1.5rem !important;
+}
+
+.reflist,
+.references {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif !important;
+    font-size: 0.82em !important;
+    line-height: 1.55 !important;
+}
+
+
+/* ==========================================================================
+   10. AMBOX / MAINTENANCE NOTICES
+   ========================================================================== */
+
+.ambox {
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+
+/* ==========================================================================
+   11. SPACING & POLISH
+   ========================================================================== */
+
+/* Headings — more breathing room */
+.mw-body-content h2 {
+    margin-top: 2rem !important;
+    padding-bottom: 0.35rem !important;
+}
+
+.mw-body-content h3 {
+    margin-top: 1.5rem !important;
+}
+
+/* Lists — slightly tighter */
+.mw-body-content ul,
+.mw-body-content ol {
+    padding-left: 1.5em !important;
+}
+
+/* Horizontal rules */
+.mw-body-content hr {
+    margin: 1.5rem 0 !important;
+}
+
+/* Selection color */
+::selection {
+    background: rgba(107, 158, 255, 0.25) !important;
+}
+
+/* Smooth transitions on interactive bits */
+a,
+.cdx-button,
+.cdx-text-input__input,
+.vector-menu-tabs .mw-list-item a {
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+/* Slim scrollbar (Webkit browsers) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+}
